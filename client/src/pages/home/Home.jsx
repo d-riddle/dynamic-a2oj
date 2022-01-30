@@ -1,10 +1,9 @@
 import { useContext, useEffect, useState } from 'react';
 import './Home.css';
 import { useLocation } from "react-router";
-import Posts from '../../components/posts/Posts';
-import axios from 'axios';
 import { Context } from '../../context/Context';
 import { Link } from 'react-router-dom';
+import { axiosInstance } from '../../config';
 
 function Home() {
     const [posts, setPosts] = useState([]);
@@ -18,7 +17,7 @@ function Home() {
         const fetchPosts = async () => {
             setErrorMessage("");
             try{
-                const res = await axios.get("/ladders" + search);
+                const res = await axiosInstance.get("/ladders" + search);
                 console.log(res.data);
                 setPosts(res.data);
                 setLoading(false);

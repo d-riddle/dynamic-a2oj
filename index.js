@@ -17,6 +17,11 @@ app.use("/api/login",loginRoute);
 app.use("/api/updatesub",updateSubRoute);
 //app.use("/api/a2oj",a2ojRoute);
 
+app.use(express.static(path.join(__dirname, "/client/build")));
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '/client/build', 'index.html'));
+});
 
 app.listen(process.env.PORT||5000, () => {
     console.log("backend is running");

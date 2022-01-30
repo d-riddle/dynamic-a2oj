@@ -1,6 +1,6 @@
-import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom';
+import { axiosInstance } from '../../config';
 import { Context } from '../../context/Context';
 import "./Ladders.css";
 
@@ -16,7 +16,7 @@ function Ladders(){
         const getLadderList=async()=>{
             setErrorMessage("");
             try{
-                const res = await axios.get("/ladders/" + path);
+                const res = await axiosInstance.get("/ladders/" + path);
                 console.log("hi");
                 console.log(res.data);
                 setLadderList(res.data);

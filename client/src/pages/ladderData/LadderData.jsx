@@ -1,6 +1,6 @@
-import axios from 'axios';
 import React, { useContext, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import { axiosInstance } from '../../config';
 import { Context } from '../../context/Context';
 import "./LadderData.css";
 
@@ -46,11 +46,11 @@ function LadderData(){
         setErrorMessage("");
         const getLadderData = async () => {
             try{
-                resQuestions = await axios.get("/ladders/" + path[0] + "/" + path[1]);
-                const resLadderInfo = await axios.get("/ladders/" + path[0]);
+                resQuestions = await axiosInstance.get("/ladders/" + path[0] + "/" + path[1]);
+                const resLadderInfo = await axiosInstance.get("/ladders/" + path[0]);
 
                 const result = resLadderInfo.data.categories.filter((p) => { return (p.id == path[1]) })[0].name;
-                resSub = await axios.post("/updatesub/" + user.result[0].handle);
+                resSub = await axiosInstance.post("/updatesub/" + user.result[0].handle);
 
                 updateStatus().then(() => {
                     console.log("finished");

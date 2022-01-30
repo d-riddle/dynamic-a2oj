@@ -2,7 +2,7 @@ import "./Login.css";
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import { Context } from "../../context/Context";
-import axios from "axios";
+import { axiosInstance } from "../../config";
 
 function Login(){
     const [username, setUsername] =useState("");
@@ -15,7 +15,7 @@ function Login(){
         console.log(username);
         dispatch({ type: "LOGIN_START" });
         try{
-            const res=await axios.post("/login",{
+            const res=await axiosInstance.post("/login",{
                 username:username
             });
             console.log(res.data);
