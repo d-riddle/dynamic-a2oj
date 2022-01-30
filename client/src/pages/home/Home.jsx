@@ -8,7 +8,7 @@ import { axiosInstance } from '../../config';
 function Home() {
     const [posts, setPosts] = useState([]);
     const { search} = useLocation();
-    console.log(search);
+    //console.log(search);
     const { user } = useContext(Context);
     const [loading, setLoading] = useState(true);
     const [errorMessage,setErrorMessage]=useState("");
@@ -18,7 +18,7 @@ function Home() {
             setErrorMessage("");
             try{
                 const res = await axiosInstance.get("/ladders" + search);
-                console.log(res.data);
+                //console.log(res.data);
                 setPosts(res.data);
                 setLoading(false);
             }catch(err){

@@ -11,17 +11,18 @@ function Ladders(){
     const path=location.pathname.split('/')[1];
     const [ladderList,setLadderList]=useState({});
     const [errorMessage,setErrorMessage]=useState("");
-    console.log(path);
+    //console.log(path);
     useEffect(()=>{
         const getLadderList=async()=>{
             setErrorMessage("");
             try{
                 const res = await axiosInstance.get("/ladders/" + path);
-                console.log("hi");
-                console.log(res.data);
+                //console.log("hi");
+                //console.log(res.data);
                 setLadderList(res.data);
                 setLoading(false);
             }catch(err){
+                console.log(err);
                 setErrorMessage(err.response.data);
                 setLoading(false);
             }
@@ -29,7 +30,7 @@ function Ladders(){
         getLadderList();
     },[path]);
     const {user}=useContext(Context);
-    console.log(ladderList.categories);
+    //console.log(ladderList.categories);
     return (loading ? (<div className='Loader'><i className="fas fa-refresh fa-spin fa-pulse fa-9x fa-fw"></i></div>):(errorMessage?(<h1>{errorMessage}</h1>):(
         <div className='ladders'>
             <div className='ladderInfo'>

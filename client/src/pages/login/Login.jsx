@@ -12,16 +12,21 @@ function Login(){
     const handleSubmit=async(e)=>{
         e.preventDefault();
         setErrorMessage("");
-        console.log(username);
+        //console.log(username);
         dispatch({ type: "LOGIN_START" });
         try{
             const res=await axiosInstance.post("/login",{
                 username:username
             });
-            console.log(res.data);
+            //console.log(res.data);
             dispatch({ type: "LOGIN_SUCCESS", payload: res.data });
         }catch(err){
-            setErrorMessage(err.response.data);
+            console.log(err);
+            if(err.response.data){
+                setErrorMessage(err.response.data);
+            }else{
+                setErrorMessage("Internal Server Error!");
+            }
             dispatch({ type: "LOGIN_FAILURE" });
         }
     };

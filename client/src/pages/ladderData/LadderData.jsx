@@ -18,23 +18,62 @@ function LadderData(){
     const updateStatus=async()=>{
         try{
             let i;
+            // for (i = 0; i < resQuestions.data.length; i++) {
+            //     let contestId = resQuestions.data[i].questionLink.split("/")[5];
+            //     let qCategory = resQuestions.data[i].questionLink.split("/")[6];
+            //     resQuestions.data[i].status = "NOT_FOUND";
+            //     for (let j=0;j<resSub.data.result.length;j++) {
+            //         let sub=resSub.data.result[j];
+            //         if (sub.contestId == contestId && qCategory == sub.problem.index) {
+            //             if(sub.verdict=="OK"){
+            //                 resQuestions.data[i].status="OK";
+            //                 break;
+            //             }else {
+            //                 resQuestions.data[i].status="WRONG";
+            //             }
+            //         }
+            //     }
+            // }
+            // console.log("inside update completed"+i);
+            resSub.data.result.sort((a, b) => a.contestId - b.contestId);
             for (i = 0; i < resQuestions.data.length; i++) {
-                let contestId = resQuestions.data[i].questionLink.split("/")[5];
-                let qCategory = resQuestions.data[i].questionLink.split("/")[6];
-                resQuestions.data[i].status = "NOT_FOUND";
-                for (let j=0;j<resSub.data.result.length;j++) {
-                    let sub=resSub.data.result[j];
-                    if (sub.contestId == contestId && qCategory == sub.problem.index) {
-                        if(sub.verdict=="OK"){
-                            resQuestions.data[i].status="OK";
-                            break;
-                        }else {
-                            resQuestions.data[i].status="WRONG";
+                let l = 0;
+                let r = Number(resSub.data.result.length) - 1;
+                let cId = Number(resQuestions.data[i].questionLink.split("/")[5]);
+                let ans = -1;
+                while (l <= r) {
+                    let mid = Math.floor((l + r) / 2);
+                    if (Number(resSub.data.result[mid].contestId) == cId) {
+                        ans = mid;
+                        r = mid - 1;
+                    }
+                    else if (Number(resSub.data.result[mid].contestId) < cId) {
+                        l = mid + 1;
+                    }
+                    else {
+                        r = mid - 1;
+                    }
+                }
+                if (ans === -1) {
+                    resQuestions.data[i].status = "NOT_FOUND";
+                } else {
+                    let j = ans;
+                    let qCat = String(resQuestions.data[i].questionLink.split("/")[6]);
+                    resQuestions.data[i].status = "NOT_FOUND";
+                    while (j < resSub.data.result.length && Number(resSub.data.result[j].contestId) == cId) {
+                        if (String(resSub.data.result[j].problem.index) == qCat) {
+                            if (resSub.data.result[j].verdict == "OK") {
+                                resQuestions.data[i].status = "OK";
+                                break;
+                            } else {
+                                resQuestions.data[i].status = "WRONG";
+                            }
                         }
+                        j++;
                     }
                 }
             }
-            console.log("inside update completed"+i);
+            //console.log(resQuestions.data);
         }catch(err){
             console.log(err);
             setErrorMessage("Internal Server Error!");
@@ -42,7 +81,7 @@ function LadderData(){
         }
     }
     useEffect(() => {
-        console.log("useEffect rendered");
+        //console.log("useEffect rendered");
         setErrorMessage("");
         const getLadderData = async () => {
             try{
