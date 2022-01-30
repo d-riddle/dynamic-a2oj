@@ -1,0 +1,69 @@
+.Loader{
+    margin-top: 100px;
+    text-align: center;
+}
+.ladders{
+    margin-top: 20px;
+}
+.ladderInfo{
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.postname{
+    margin-top: 30px;
+    font-size: 50px;
+    font-family: 'Lora', serif;
+}
+.postauthor{
+    margin-top: 10px;
+    font-size: 18px;
+    text-align: center;
+    font-family: 'Varela Round', sans-serif;
+}
+.username{
+    margin-top: 20px;
+    font-size: 20px;
+    text-align: center;
+    font-family: "Josefin Sans", sans-serif;
+}
+.laddersList{
+    padding-bottom: 20px;
+}
+table{
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    width:60%;
+}
+table, td, th{
+    border: 1px solid black;
+}
+table{
+    border-collapse: collapse;
+}
+th{
+    height: 50px;
+    font-size: 25px;
+    padding:5px;
+    font-family: "Josefin Sans", sans-serif;
+}
+td{
+    text-align: center;
+    height: 40px;
+    font-size: 18px;
+}
+a{
+    color: inherit;
+}
+.tableBodyRow:hover{
+    background-color: rgb(241, 236, 236);
+}
+.tableBodyRowElementName{
+    color: rgb(13, 133, 245);
+}
+.tableBodyRow:hover .tableBodyRowElementName a{
+    cursor:pointer;
+    text-decoration: rgb(13, 133, 245) underline;
+}

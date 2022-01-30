@@ -1,0 +1,58 @@
+.loader{
+    margin-top: 100px;
+    text-align: center;
+}
+.headerTitle{
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.headerUser{
+    margin-top: 100px;
+    font-size: 40px;
+    text-align: center;
+    font-family: "Josefin Sans", sans-serif;
+}
+.homeBody{
+    margin-top:auto;
+    margin-bottom: auto;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+table.hometable{
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    width:60%;
+}
+table, td, th{
+    border: 1px solid black;
+}
+table{
+    border-collapse: collapse;
+}
+th.homeBodyth{
+    height: 55px;
+    font-size: 25px;
+    padding:5px;
+    font-family: "Josefin Sans", sans-serif;
+}
+td.homeBodytr{
+    text-align: center;
+    height: 40px;
+    font-size: 18px;
+}
+a{
+    color: inherit;
+}
+.hometableBodyRow:hover{
+    background-color: rgb(241, 236, 236);
+}
+.hometableBodyRowElementName{
+    color: rgb(13, 133, 245);
+}
+.hometableBodyRow:hover .hometableBodyRowElementName a{
+    cursor:pointer;
+    text-decoration: rgb(13, 133, 245) underline !important;
+}
