@@ -10,7 +10,7 @@ function waitTime(ms) {
 //update user submissions
 router.post("/:username",async(req,res)=>{
     try{
-        await waitTime(2000);
+        //await waitTime(2000);
         const userSubmissions = await axios.get("https://codeforces.com/api/user.status?handle=" + req.params.username);
         res.status(200).json(userSubmissions.data);
     }catch(err){
