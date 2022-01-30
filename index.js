@@ -11,6 +11,10 @@ const updateSubRoute=require("./routes/updateSub");
 dotenv.config();
 app.use(express.json());
 
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    next();
+});
 
 
 app.use("/api/ladders",laddersRoute);
