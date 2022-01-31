@@ -53,6 +53,7 @@ td{
     text-align: center;
     height: 40px;
     font-size: 18px;
+    padding: 5px;
 }
 a{
     color: inherit;
@@ -66,4 +67,28 @@ a{
 .tableBodyRow:hover .tableBodyRowElementName a{
     cursor:pointer;
     text-decoration: rgb(13, 133, 245) underline;
+}
+
+@media screen and (max-width:480px){
+    .ladders{
+        margin-top: 10px;
+    }
+    .postname{
+        margin-top: 25px;
+        font-size: 35px;
+    }
+    .postauthor{
+        font-size: 15px;
+    }
+    .username{
+        font-size: 20px;
+    }
+    th{
+        height: 40px;
+        font-size: 18px;
+    }
+    td{
+        height: 35px;
+        font-size: 15px;
+    }
 }

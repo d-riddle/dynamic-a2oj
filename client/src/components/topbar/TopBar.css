@@ -27,7 +27,7 @@
 }
 .topIcon{
     font-size: 20px;
-    margin-right: 10px;
+    margin-right: 15px;
     cursor: pointer;
     text-decoration: none;
     color:inherit;
@@ -43,7 +43,13 @@
     margin-right: 10px;
     cursor:pointer;
 }
-.topSearchIcon{
-    font-size: 20px;
-    margin-left: 20px;
+
+@media screen and (max-width:480px){
+    .topIcon{
+        font-size: 15px;
+        margin-right: 7px;
+    }
+    .topListItem{
+        margin-right: 7px;
+    }  
 }

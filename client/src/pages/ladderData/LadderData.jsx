@@ -12,12 +12,15 @@ function LadderData(){
     const [ladderCategory,setLadderCategory]=useState("");
     const [author,setAuthor]=useState("");
     const [errorMessage,setErrorMessage]=useState("");
+    const [solvedCount, setSolvedCount] = useState(0);
     //console.log(path);
     const { user} = useContext(Context);
     let resQuestions,resSub;
+    let count;
     const updateStatus=async()=>{
         try{
             let i;
+            count = 0;
             // for (i = 0; i < resQuestions.data.length; i++) {
             //     let contestId = resQuestions.data[i].questionLink.split("/")[5];
             //     let qCategory = resQuestions.data[i].questionLink.split("/")[6];
@@ -64,6 +67,7 @@ function LadderData(){
                         if (String(resSub.data.result[j].problem.index) == qCat) {
                             if (resSub.data.result[j].verdict == "OK") {
                                 resQuestions.data[i].status = "OK";
+                                count++;
                                 break;
                             } else {
                                 resQuestions.data[i].status = "WRONG";
@@ -96,6 +100,7 @@ function LadderData(){
                     setLadderData(resQuestions.data);
                     setLadderCategory(result);
                     setAuthor(resLadderInfo.data.author);
+                    setSolvedCount(count);
                 }).then(() => {
                     setLoading(false);
                 }).catch((err) => {
@@ -123,6 +128,7 @@ function LadderData(){
                 <span className='ladderDataName'>{ladderCategory}</span>
                 <span className='ladderDataAuthor'>Author: {author}</span>
                 <span className='username'>[{user.result[0].handle}]</span>
+                <span className='solved'>Solved: {solvedCount}</span>
             </div>
             <div className='ladderDataBody'>
                 <table>

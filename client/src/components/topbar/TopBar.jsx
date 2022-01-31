@@ -11,10 +11,8 @@ function TopBar() {
     return (
         <div className="top">
             <div className="topLeft">
-                <a href="https://www.facebook.com/" className="topIcon" target="_blank" rel='noreferrer noopener'><i className="fab fa-facebook-square"></i></a>
-                <a href="https://www.instagram.com/" className="topIcon" target="_blank" rel='noreferrer noopener'><i className="fab fa-pinterest-square"></i></a>
-                <a href="https://www.pinterest.com/" className="topIcon" target="_blank" rel='noreferrer noopener'><i className="fab fa-twitter-square"></i></a>
-                <a href="https://twitter.com/" className="topIcon" target="_blank" rel='noreferrer noopener'><i className="fab fa-instagram-square"></i></a>
+                <a href="https://slack.com/" className="topIcon" target="_blank" rel='noreferrer noopener'><i className="fab fa-slack"></i></a>
+                <a href="https://www.linkedin.com/" className="topIcon" target="_blank" rel='noreferrer noopener'><i className="fab fa-linkedin"></i></a>
             </div>
             <div className="topCenter">
                 <ul className="topList">
@@ -36,7 +34,9 @@ function TopBar() {
                                 <li className="topListItem"><Link className="Link" to="/register">REGISTER</Link></li>
                             </ul>
                         )} */}
-                <i class="topSearchIcon fas fa-search"></i>
+                {/* <i class="topSearchIcon fas fa-search"></i> */}
+                <a href="https://www.hackerrank.com/" className="topIcon" target="_blank" rel='noreferrer noopener'><i className="fab fa-hackerrank"></i></a>
+                <a href="https://github.com/" className="topIcon" target="_blank" rel='noreferrer noopener'><i className="fab fa-github"></i></a>
             </div>
         </div>
     );
