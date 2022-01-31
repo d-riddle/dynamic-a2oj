@@ -44,6 +44,18 @@ router.get("/:name", async (req, res) => {
             ladders.categories.push({ id: 19, name: "2000 <= Codeforces Rating <= 2099" });
             ladders.categories.push({ id: 20, name: "2100 <= Codeforces Rating <= 2199" });
             ladders.categories.push({ id: 21, name: "Codeforces Rating >= 2200" });
+
+            ladders.categories.push({ id: 22, name: "Codeforces Rating < 1300 (Extra)" });
+            ladders.categories.push({ id: 23, name: "1300 <= Codeforces Rating <= 1399 (Extra)" });
+            ladders.categories.push({ id: 24, name: "1400 <= Codeforces Rating <= 1499 (Extra)" });
+            ladders.categories.push({ id: 25, name: "1500 <= Codeforces Rating <= 1599 (Extra)" });
+            ladders.categories.push({ id: 26, name: "1600 <= Codeforces Rating <= 1699 (Extra)" });
+            ladders.categories.push({ id: 27, name: "1700 <= Codeforces Rating <= 1799 (Extra)" });
+            ladders.categories.push({ id: 28, name: "1800 <= Codeforces Rating <= 1899 (Extra)" });
+            ladders.categories.push({ id: 29, name: "1900 <= Codeforces Rating <= 1999 (Extra)" });
+            ladders.categories.push({ id: 30, name: "2000 <= Codeforces Rating <= 2099 (Extra)" });
+            ladders.categories.push({ id: 31, name: "2100 <= Codeforces Rating <= 2199 (Extra)" });
+            ladders.categories.push({ id: 32, name: "Codeforces Rating >= 2200 (Extra)" });
         }
             await getLadders();
     } else {
@@ -53,6 +65,9 @@ router.get("/:name", async (req, res) => {
             const getLadders = async () => {
                 ladders.categories.push({ id: 1, name: "Kartik Specialist Sheet" });
                 ladders.categories.push({ id: 2, name: "Kartik Expert Sheet" });
+
+                ladders.categories.push({ id: 3, name: "Kartik Specialist Sheet (Extra 1)" });
+                ladders.categories.push({ id: 4, name: "Kartik Expert Sheet (Extra 1)" });
             }
             await getLadders();
     }
